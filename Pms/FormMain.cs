@@ -17,8 +17,8 @@ namespace Pms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 frmQuery=new Form1();
-            
+            FrmQuery frmQuery = new FrmQuery();
+            frmQuery.IsPay = false;
             frmQuery.Show();
         }
 
