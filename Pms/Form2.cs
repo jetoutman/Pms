@@ -30,7 +30,7 @@ namespace Pms
             string time = DateTime.Now.ToString("hhmmss");
             Header payCardHeader = new PayCardHeader(cardNo, password, shopId, posId, cashierId,date,time, payValue, owenerId, cdSeq);
             CardConn cardCon=new CardConn();
-            textBox1.Text = cardCon.PayCard(payCardHeader);
+            //textBox1.Text = cardCon.PayCard(payCardHeader);
            
         }
     }

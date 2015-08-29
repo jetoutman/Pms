@@ -7,17 +7,21 @@ namespace Pms
 {
     internal class QueryCardHeader : Header
     {
-        private const string LENGTH = "129";
+       
         private const string TRANID = "3010";
         private const string CODE = "-001";
+        private const string C_Recstat = "0";
+        private const string C_Stat = "0";
         public QueryCardHeader( string cardno, string password,string shopId,string posId,string cashierId)
-            : base(LENGTH, TRANID, CODE)
+            : base(TRANID, CODE)
         {
             Cardno = cardno;
             Passwd = password;
             Shopid = shopId;
             Posid = posId;
             Cashierid = cashierId;
+            Recstat = C_Recstat;
+            Stat = C_Stat;
         }
       
         

@@ -18,14 +18,18 @@ namespace Pms
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 frmQuery=new Form1();
+            
             frmQuery.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             
-            Form2 frmPay=new Form2();
-            frmPay.Show();
+           /* Form2 frmPay=new Form2();
+            frmPay.Show();*/
+            FrmPay frmPay=new FrmPay();
+            
+            frmPay.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)

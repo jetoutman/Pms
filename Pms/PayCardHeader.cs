@@ -6,13 +6,13 @@ namespace Pms
 {
     class PayCardHeader:Header
     {
-        private const string C_LENGTH = "129";
+      
         private const string C_TRANID = "3020";
         private const string C_CODE = "-001";
         private const string C_Recstat = "4";
         private const string C_Stat = "0";
         public PayCardHeader(string cardno, string password, string shopId, string posId, string cashierId, string date, string time, string payValue, string owner, string cdseq)
-            : base(C_LENGTH, C_TRANID, C_CODE)
+            : base(C_TRANID, C_CODE)
         {
             Cardno = cardno;
             Passwd = password;

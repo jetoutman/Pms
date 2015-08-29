@@ -25,7 +25,7 @@ namespace Pms
             string cashierId = txtCashierId.Text.Trim();
             Header queryHeader = new QueryCardHeader(cardNo, password, shopId, posId, cashierId);
             CardConn conn = new CardConn();
-            textBox1.Text = conn.ReadCard(queryHeader);
+            //textBox1.Text = conn.ReadCard(queryHeader);
         }
     }
 }

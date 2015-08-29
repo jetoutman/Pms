@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Pms
 {
-    public partial class Form3 : Form
+    public partial class FrmNavPay :BaseForm
     {
-        public Form3()
+        public FrmNavPay()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace Pms
             string time = DateTime.Now.ToString("hhmmss");
             Header negativePayHeader = new NegativePayHeader(cardNo, password, shopId, posId, cashierId, date, time, payValue, owenerId, cdSeq);
             CardConn cardCon = new CardConn();
-           // textBox1.Text = cardCon.NegativePayCard(negativePayHeader);
+            ProcessResult proccessResult = cardCon.NegativePayCard(negativePayHeader);
         }
     }
 }

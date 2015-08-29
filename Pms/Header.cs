@@ -7,27 +7,29 @@ namespace Pms
 {
    abstract class Header
     {
-        public string Length { get; set; }
-        public string Tranid { get; set; }
-        public string Code { get; set; }
-        public string Cardno { get; set; }
-        public string Passwd { get; set; }
-        public string Recstat { get; set; }
-        public  string Stat { get; set; }
-        public string Shopid { get; set; }
-        public string Posid { get; set; }
-        public string Cashierid { get; set; }
-        public string Date { get; set; }
-        public string Time { get; set; }
-        public string Payvalue { get; set; }
-        public string Balance { get; set; }
-        public string Owner { get; set; }
-        public string Cdseq { get; set; }
-        public string Guestname { get; set; }
+       protected const string C_LENGTH = "138";
+       public string Length { get; set; }
+       public string Tranid { get; set; }
+       public string Code { get; set; }
+       public string Cardno { get; set; }
+       public string Passwd { get; set; }
+       public string NewPasswd { get; set; }
+       public string Recstat { get; set; }
+       public string Stat { get; set; }
+       public string Shopid { get; set; }
+       public string Posid { get; set; }
+       public string Cashierid { get; set; }
+       public string Date { get; set; }
+       public string Time { get; set; }
+       public string Payvalue { get; set; }
+       public string Balance { get; set; }
+       public string Owner { get; set; }
+       public string Cdseq { get; set; }
+       public string Guestname { get; set; }
 
-       protected Header(string length, string tranid, string code)
+       protected Header( string tranid, string code)
         {
-            Length = length;
+            Length = C_LENGTH;
             Tranid = tranid;
             Code = code;
            
@@ -41,6 +43,7 @@ namespace Pms
            builder.AppendFormat(RepeartChar(Code, 5));
            builder.AppendFormat(RepeartChar(Cardno, 20));
            builder.AppendFormat(RepeartChar(Passwd, 9));
+           builder.AppendFormat(RepeartChar(NewPasswd, 9));
            builder.AppendFormat(RepeartChar(Recstat, 1));
            builder.AppendFormat(RepeartChar(Stat, 1));
            builder.AppendFormat(RepeartChar(Shopid, 5));
