@@ -92,6 +92,34 @@ namespace Pms
             return processResult;
         }
 
+        private string xx(string input)
+        {
+            string str1 = input.Substring(0, 1);
+            string str2 = input.Substring(input.Length - 1, 1);
+            string no = string.Empty;
+            if (str1 == ";")
+            {
+                no = input.Substring(1);
+            }
+            if (str2 == "?")
+            {
+                no = input.Substring(0, input.Length - 1);
+            }
+            return no;
+
+        }
+
+        private string yy(string input)
+        {
+            string cardNo = input;
+            if (input.Substring(0, 1) == ";")
+            {
+                cardNo = input.Substring(1, input.Length - 2);
+            }
+          
+            return cardNo;
+
+        }
 
         private string GetData(Header header)
         {
