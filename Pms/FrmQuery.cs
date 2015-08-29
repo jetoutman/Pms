@@ -58,16 +58,13 @@ namespace Pms
                     bool isGreatThan = banlance >= PayAmount;
                     if (IsPay && isGreatThan)
                     {
-                        DialogResult dr = MessageBox.Show("卡金额足够，现在结账吗？", "付款");
+                        DialogResult dr = MessageBox.Show("卡金额足够，现在结账吗？", "付款",MessageBoxButtons.OKCancel);
 
                         if (dr == DialogResult.OK) 
                         {
                             Pay();
                         }
-                        else
-                        {
-                            this.Close();
-                        }
+                       
                     }
                 }
             }
@@ -76,7 +73,7 @@ namespace Pms
         private void Pay()
         {
             CardConn conn = new CardConn();
-            string cardNo = "181";
+            string cardNo = txtCardNo.Text.Trim();
             string password = string.Empty;
             string shopId = conn.ShopId;
             string posId = conn.Posid;
@@ -89,7 +86,13 @@ namespace Pms
             string time = DateTime.Now.ToString("hhmmss");
             Header payCardHeader = new PayCardHeader(cardNo, password, shopId, posId, cashierId,date,time, payValue, owenerId, cdSeq);
             ProcessResult processResult = conn.PayCard(payCardHeader);
-            MessageBox.Show(processResult.Result);
+            bool isProcess = processResult.IsProcessed;
+            if (isProcess)
+            {
+                this.Close();
+                MessageBox.Show(processResult.Result);
+            }
+           
         }
     }
 }

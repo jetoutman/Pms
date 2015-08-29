@@ -43,6 +43,7 @@ namespace Pms
                 frmQuery.PayAmount = decimal.Parse(txtPayValue.Text.Trim());
                 frmQuery.IsPay = true;
                 frmQuery.ShowDialog();
+                this.Close();
               
             }
         }

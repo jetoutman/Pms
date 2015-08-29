@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtPayValue = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnPay = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,23 +75,12 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "消费金额:";
             // 
-            // btnPay
-            // 
-            this.btnPay.Location = new System.Drawing.Point(128, 405);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(189, 23);
-            this.btnPay.TabIndex = 9;
-            this.btnPay.Text = "支付";
-            this.btnPay.UseVisualStyleBackColor = true;
-            this.btnPay.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FrmPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 472);
+            this.ClientSize = new System.Drawing.Size(447, 156);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnPay);
             this.Name = "FrmPay";
             this.Text = "储值卡支付";
             this.Load += new System.EventHandler(this.FrmPay_Load);
@@ -105,7 +93,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.TextBox txtPayValue;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
