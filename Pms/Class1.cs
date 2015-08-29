@@ -7,5 +7,6 @@ namespace Pms
     class Class1
     {
         public string T { get; set; }
+        public string U { get; set; }
     }
 }
