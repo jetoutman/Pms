@@ -32,13 +32,12 @@
             this.txtCardNo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Lbl_msg = new System.Windows.Forms.Label();
             this.lbl_Amount = new System.Windows.Forms.Label();
-            this.lbl_CustormName = new System.Windows.Forms.Label();
             this.lbl_cardNo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Lbl_msg = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +54,7 @@
             // txtCardNo
             // 
             this.txtCardNo.Location = new System.Drawing.Point(130, 17);
-            this.txtCardNo.MaxLength = 20;
+            this.txtCardNo.MaxLength = 100;
             this.txtCardNo.Name = "txtCardNo";
             this.txtCardNo.PasswordChar = '*';
             this.txtCardNo.Size = new System.Drawing.Size(200, 21);
@@ -65,7 +64,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.Lbl_msg);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.txtCardNo);
             this.groupBox1.Controls.Add(this.label1);
@@ -78,8 +76,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.Lbl_msg);
             this.groupBox2.Controls.Add(this.lbl_Amount);
-            this.groupBox2.Controls.Add(this.lbl_CustormName);
             this.groupBox2.Controls.Add(this.lbl_cardNo);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
@@ -91,6 +89,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "卡信息";
             // 
+            // Lbl_msg
+            // 
+            this.Lbl_msg.AutoSize = true;
+            this.Lbl_msg.Location = new System.Drawing.Point(97, 31);
+            this.Lbl_msg.Name = "Lbl_msg";
+            this.Lbl_msg.Size = new System.Drawing.Size(0, 12);
+            this.Lbl_msg.TabIndex = 9;
+            // 
             // lbl_Amount
             // 
             this.lbl_Amount.AutoSize = true;
@@ -99,18 +105,10 @@
             this.lbl_Amount.Size = new System.Drawing.Size(0, 12);
             this.lbl_Amount.TabIndex = 12;
             // 
-            // lbl_CustormName
-            // 
-            this.lbl_CustormName.AutoSize = true;
-            this.lbl_CustormName.Location = new System.Drawing.Point(99, 60);
-            this.lbl_CustormName.Name = "lbl_CustormName";
-            this.lbl_CustormName.Size = new System.Drawing.Size(0, 12);
-            this.lbl_CustormName.TabIndex = 14;
-            // 
             // lbl_cardNo
             // 
             this.lbl_cardNo.AutoSize = true;
-            this.lbl_cardNo.Location = new System.Drawing.Point(99, 31);
+            this.lbl_cardNo.Location = new System.Drawing.Point(97, 60);
             this.lbl_cardNo.Name = "lbl_cardNo";
             this.lbl_cardNo.Size = new System.Drawing.Size(0, 12);
             this.lbl_cardNo.TabIndex = 13;
@@ -118,37 +116,29 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 89);
+            this.label4.Location = new System.Drawing.Point(32, 89);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 12);
+            this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 11;
-            this.label4.Text = "余额:";
+            this.label4.Text = "余额：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(32, 60);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 10;
-            this.label3.Text = "持卡人：";
+            this.label3.Text = "卡号：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 31);
+            this.label2.Location = new System.Drawing.Point(10, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 9;
-            this.label2.Text = "卡号：";
-            // 
-            // Lbl_msg
-            // 
-            this.Lbl_msg.AutoSize = true;
-            this.Lbl_msg.Location = new System.Drawing.Point(359, 25);
-            this.Lbl_msg.Name = "Lbl_msg";
-            this.Lbl_msg.Size = new System.Drawing.Size(0, 12);
-            this.Lbl_msg.TabIndex = 9;
+            this.label2.Text = "查询结果：";
             // 
             // FrmQuery
             // 
@@ -173,7 +163,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lbl_Amount;
-        private System.Windows.Forms.Label lbl_CustormName;
         private System.Windows.Forms.Label lbl_cardNo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

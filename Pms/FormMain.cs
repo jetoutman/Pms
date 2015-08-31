@@ -19,6 +19,7 @@ namespace Pms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            UnRigisterKey();
             FrmQuery frmQuery = new FrmQuery();
             frmQuery.IsPay = false;
             frmQuery.Show();
@@ -29,6 +30,7 @@ namespace Pms
             
            /* Form2 frmPay=new Form2();
             frmPay.Show();*/
+            UnRigisterKey();
             FrmPay frmPay=new FrmPay();
             
             frmPay.ShowDialog();

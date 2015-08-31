@@ -44,7 +44,14 @@ namespace Pms
        {
             h.Regist(this.Handle, 0, Keys.F11, CallBack);
        }
-       
-      
+
+       protected void UnRigisterKey()
+       {
+           h.UnRegist(this.Handle, CallBackUnkey);
+       }
+
+       public void CallBackUnkey()
+       {
+       }
     }
 }

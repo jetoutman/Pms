@@ -17,7 +17,9 @@ namespace Pms
         public FrmQuery()
         {
             InitializeComponent();
+            
             txtCardNo.Focus();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,18 +35,34 @@ namespace Pms
             if (processResult.IsProcessed)
             {
                 lbl_cardNo.Text = processResult.Cardno;
-                lbl_CustormName.Text = processResult.Guestname;
+                
                 lbl_Amount.Text = processResult.Balance.Trim();
             }
         }
 
+        private string GetCardNo(string input)
+        {
+            input = input.Replace("?", "").Replace("!", "");
+            return input.Split(new[] {'='})[0];
+        }
+        private string GetCardPwd(string input)
+        {
+            input = input.Replace("?", "").Replace("!", "");
+            string pwd = string.Empty;
+            if (input.Contains("="))
+            {
+                pwd=input.Split(new[] { '=' })[1];
+            }
+            return pwd;
+        }
         private void txtCardNo_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) //如果输入的是回车键
             {
+                string input = txtCardNo.Text.Trim();
                 CardConn conn = new CardConn();
-                string cardNo = txtCardNo.Text.Trim();
-                string password = string.Empty;
+                string cardNo = GetCardNo(input);
+                string password = GetCardPwd(input);
                 string shopId = conn.ShopId;
                 string posId = conn.Posid;
                 string cashierId = conn.Cashierid;
@@ -54,7 +72,7 @@ namespace Pms
                 if (processResult.IsProcessed)
                 {
                     lbl_cardNo.Text = processResult.Cardno;
-                    lbl_CustormName.Text = processResult.Guestname;
+                  
                     lbl_Amount.Text = processResult.Balance.Trim();
                     decimal banlance = 0m;
                     decimal.TryParse(processResult.Balance, out banlance);
@@ -76,8 +94,9 @@ namespace Pms
         private void Pay()
         {
             CardConn conn = new CardConn();
-            string cardNo = txtCardNo.Text.Trim();
-            string password = string.Empty;
+            string input = txtCardNo.Text.Trim();
+            string cardNo = GetCardNo(input);
+            string password = GetCardPwd(input);
             string shopId = conn.ShopId;
             string posId = conn.Posid;
             string cashierId = conn.Cashierid;
