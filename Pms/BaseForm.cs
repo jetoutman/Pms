@@ -7,7 +7,11 @@ namespace Pms
 {
    public class BaseForm:Form
     {
+       protected int FormId { get; set; }
        public bool IsPay { get; set; }
+
+       protected static Dictionary<int, bool> HotKeySets = new Dictionary<int, bool>();
+      
        HotKey h = new HotKey();
         public void CallBack()
         {
@@ -40,18 +44,17 @@ namespace Pms
 
         }
 
-       protected void RigisterKey()
+       /* protected void RigisterKey()
        {
-            h.Regist(this.Handle, 0, Keys.F11, CallBack);
+           h.Regist(this.Handle, 0, Keys.F11, CallBack);
        }
 
-       protected void UnRigisterKey()
+        protected void UnRigisterKey()
        {
-           h.UnRegist(this.Handle, CallBackUnkey);
-       }
+           h.UnRegist(this.Handle, CallBack);
+         
+       }*/
 
-       public void CallBackUnkey()
-       {
-       }
+      
     }
 }

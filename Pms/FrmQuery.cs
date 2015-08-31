@@ -17,9 +17,8 @@ namespace Pms
         public FrmQuery()
         {
             InitializeComponent();
-            
             txtCardNo.Focus();
-           
+       
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -121,6 +120,12 @@ namespace Pms
 
             }
            
+        }
+
+        private void FrmQuery_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+        
         }
         
     }

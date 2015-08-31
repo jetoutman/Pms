@@ -14,6 +14,7 @@ namespace Pms
         public FrmPay()
         {
             InitializeComponent();
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,6 +42,7 @@ namespace Pms
            
             if (e.KeyCode == Keys.Enter)//如果输入的是回车键
             {
+              
                 FrmQuery frmQuery=new FrmQuery();
                 frmQuery.PayAmount = decimal.Parse(txtPayValue.Text.Trim());
                 frmQuery.IsPay = true;
@@ -76,6 +78,12 @@ namespace Pms
             {
                 e.Handled = false;
             } 
+        }
+
+        private void FrmPay_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+            HotKeySets[1] = false;
         }
     }
 }

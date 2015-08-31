@@ -10,16 +10,17 @@ namespace Pms
 {
     public partial class FormMain : BaseForm
     {
+     
       
         public FormMain()
         {
             InitializeComponent();
-            RigisterKey();
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UnRigisterKey();
+          
             FrmQuery frmQuery = new FrmQuery();
             frmQuery.IsPay = false;
             frmQuery.Show();
@@ -30,7 +31,8 @@ namespace Pms
             
            /* Form2 frmPay=new Form2();
             frmPay.Show();*/
-            UnRigisterKey();
+       
+            HotKeySets[FormId] = true;
             FrmPay frmPay=new FrmPay();
             
             frmPay.ShowDialog();
@@ -40,6 +42,21 @@ namespace Pms
         {
             Form3 frmNavPay=new Form3();
             frmNavPay.Show();
+        }
+
+        private void FormMain_Activated(object sender, EventArgs e)
+        {
+           /* if (HotKeySets[FormId] == false)
+            {
+                RigisterKey();
+                HotKeySets[FormId] = true;
+            }*/
+          
+        }
+
+        private void FormMain_Leave(object sender, EventArgs e)
+        {
+         
         }
        
 

@@ -72,6 +72,7 @@ namespace Pms
         private ProcessResult Process(Header header, IList<KeyValuePair<string, string>> list)
         {
             string data = GetData(header);
+            int i = data.Length;
             bool isProcess = false;
             ProcessResult processResult = new ProcessResult(data);
             string result = "其它错误";

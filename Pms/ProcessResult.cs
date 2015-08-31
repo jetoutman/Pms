@@ -47,7 +47,8 @@ namespace Pms
             Balance = result.Substring(100, 13).Replace("\0", "");
             Owner = result.Substring(113, 11).Replace("\0", "");
             Cdseq = result.Substring(124, 5).Replace("\0", "");
-            Guestname = result.Substring(129, 13).Replace("\0", ""); 
+           Guestname = result.Substring(129, 13).Replace("\0", ""); 
+          
            
 
            

@@ -11,9 +11,9 @@ namespace Pms
     {
         //引入系统API
         [DllImport("user32.dll")]
-        static extern bool RegisterHotKey(IntPtr hWnd, int id, int modifiers, Keys vk);
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int modifiers, Keys vk);
         [DllImport("user32.dll")]
-        static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
 
         int keyid = 10;     //区分不同的快捷键

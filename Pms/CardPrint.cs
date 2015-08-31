@@ -160,7 +160,7 @@ namespace Pms
             report.SetParameters(new ReportParameter("Order", GetOrder()));
             report.SetParameters(new ReportParameter("Oper", OPER));
             report.SetParameters(new ReportParameter("OperName", OPERNAME));
-            report.SetParameters(new ReportParameter("CardType", ProcessResult.Cardno));
+            report.SetParameters(new ReportParameter("CardType", ProcessResult.Guestname));
             ExportBillsReport(report);
             PrintReport();
         }

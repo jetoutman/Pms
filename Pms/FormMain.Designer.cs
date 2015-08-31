@@ -73,6 +73,8 @@
             this.Controls.Add(this.button1);
             this.Name = "FormMain";
             this.Text = "储值卡管理系统";
+            this.Activated += new System.EventHandler(this.FormMain_Activated);
+            this.Leave += new System.EventHandler(this.FormMain_Leave);
             this.ResumeLayout(false);
 
         }

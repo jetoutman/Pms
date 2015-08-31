@@ -83,6 +83,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmPay";
             this.Text = "储值卡支付";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPay_FormClosed);
             this.Load += new System.EventHandler(this.FrmPay_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
