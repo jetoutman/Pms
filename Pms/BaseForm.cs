@@ -11,14 +11,15 @@ namespace Pms
        HotKey h = new HotKey();
         public void CallBack()
         {
-            bool isMax = this.WindowState == FormWindowState.Maximized;
-            if (isMax)
+            bool isMin = this.WindowState == FormWindowState.Minimized;
+            if (isMin)
             {
-                this.WindowState = FormWindowState.Minimized;
+                this.WindowState = FormWindowState.Normal;
             }
             else
             {
-                this.WindowState = FormWindowState.Maximized;
+                this.WindowState = FormWindowState.Minimized;
+                
             }
 
 

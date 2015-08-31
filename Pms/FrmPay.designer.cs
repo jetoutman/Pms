@@ -59,13 +59,12 @@
             // txtPayValue
             // 
             this.txtPayValue.Location = new System.Drawing.Point(119, 20);
-            this.txtPayValue.MaxLength = 5;
+            this.txtPayValue.MaxLength = 9;
             this.txtPayValue.Name = "txtPayValue";
             this.txtPayValue.Size = new System.Drawing.Size(164, 21);
             this.txtPayValue.TabIndex = 0;
-            this.txtPayValue.Text = ".00";
-            this.txtPayValue.TextChanged += new System.EventHandler(this.txtPayValue_TextChanged);
             this.txtPayValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPayValue_KeyDown);
+            this.txtPayValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPayValue_KeyPress);
             // 
             // label6
             // 

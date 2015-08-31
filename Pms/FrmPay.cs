@@ -38,7 +38,7 @@ namespace Pms
 
         private void txtPayValue_KeyDown(object sender, KeyEventArgs e)
         {
-          
+           
             if (e.KeyCode == Keys.Enter)//如果输入的是回车键
             {
                 FrmQuery frmQuery=new FrmQuery();
@@ -58,8 +58,24 @@ namespace Pms
 
         private void txtPayValue_TextChanged(object sender, EventArgs e)
         {
-         /*   Regex regex = new Regex(@"^[0-9]*$");
-            txtPayValue.Text = regex.Replace(txtPayValue.Text, "");*/
+            Regex regex = new Regex(@"!/^\d+[.]?\d{0,2}$");
+            var matchs = regex.Match(txtPayValue.Text);
+            //txtPayValue.Text = ss;
+        }
+
+        private void txtPayValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool isNotExistDot = txtPayValue.Text.Contains(".") == false;
+
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if ((isNotExistDot && e.KeyChar == '.') || e.KeyChar == '\b')
+            {
+                e.Handled = false;
+            } 
         }
     }
 }
