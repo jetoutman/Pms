@@ -64,6 +64,7 @@
             this.txtPayValue.Size = new System.Drawing.Size(164, 21);
             this.txtPayValue.TabIndex = 0;
             this.txtPayValue.Text = ".00";
+            this.txtPayValue.TextChanged += new System.EventHandler(this.txtPayValue_TextChanged);
             this.txtPayValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPayValue_KeyDown);
             // 
             // label6

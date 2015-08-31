@@ -26,6 +26,7 @@ namespace Pms
         public string Guestname { get; set; }
         public string Result { get; set; }
         public bool IsProcessed { get; set; }
+      
         public ProcessResult(string result)
         {
             //4+5+5+20+9+9+1+1+5+5+5+9+9+13+13+11+5+13

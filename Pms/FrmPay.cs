@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Pms
@@ -37,20 +38,28 @@ namespace Pms
 
         private void txtPayValue_KeyDown(object sender, KeyEventArgs e)
         {
+          
             if (e.KeyCode == Keys.Enter)//如果输入的是回车键
             {
                 FrmQuery frmQuery=new FrmQuery();
                 frmQuery.PayAmount = decimal.Parse(txtPayValue.Text.Trim());
                 frmQuery.IsPay = true;
                 frmQuery.ShowDialog();
-                this.Close();
-              
+                txtPayValue.Text = string.Empty;
+                txtPayValue.Focus();
+
             }
         }
 
         private void FrmPay_Load(object sender, EventArgs e)
         {
             txtPayValue.Focus();
+        }
+
+        private void txtPayValue_TextChanged(object sender, EventArgs e)
+        {
+         /*   Regex regex = new Regex(@"^[0-9]*$");
+            txtPayValue.Text = regex.Replace(txtPayValue.Text, "");*/
         }
     }
 }

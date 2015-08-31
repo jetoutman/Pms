@@ -92,6 +92,7 @@ namespace Pms
             return processResult;
         }
 
+      
         private string xx(string input)
         {
             string str1 = input.Substring(0, 1);
@@ -119,6 +120,11 @@ namespace Pms
           
             return cardNo;
 
+        }
+
+        public void Print(string str)
+        {
+            
         }
 
         private string GetData(Header header)

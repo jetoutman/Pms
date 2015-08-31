@@ -38,6 +38,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Lbl_msg = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -57,13 +58,14 @@
             this.txtCardNo.MaxLength = 20;
             this.txtCardNo.Name = "txtCardNo";
             this.txtCardNo.PasswordChar = '*';
-            this.txtCardNo.Size = new System.Drawing.Size(164, 21);
+            this.txtCardNo.Size = new System.Drawing.Size(200, 21);
             this.txtCardNo.TabIndex = 0;
             this.txtCardNo.UseSystemPasswordChar = true;
             this.txtCardNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCardNo_KeyDown);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Lbl_msg);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.txtCardNo);
             this.groupBox1.Controls.Add(this.label1);
@@ -140,6 +142,14 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "卡号：";
             // 
+            // Lbl_msg
+            // 
+            this.Lbl_msg.AutoSize = true;
+            this.Lbl_msg.Location = new System.Drawing.Point(359, 25);
+            this.Lbl_msg.Name = "Lbl_msg";
+            this.Lbl_msg.Size = new System.Drawing.Size(0, 12);
+            this.Lbl_msg.TabIndex = 9;
+            // 
             // FrmQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -168,5 +178,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Lbl_msg;
     }
 }

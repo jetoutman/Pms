@@ -8,11 +8,13 @@ using System.Windows.Forms;
 
 namespace Pms
 {
-    public partial class FormMain : Form
+    public partial class FormMain : BaseForm
     {
+      
         public FormMain()
         {
             InitializeComponent();
+            RigisterKey();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,5 +39,9 @@ namespace Pms
             Form3 frmNavPay=new Form3();
             frmNavPay.Show();
         }
+       
+
+       
+      
     }
 }

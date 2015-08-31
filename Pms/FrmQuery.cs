@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -48,6 +50,7 @@ namespace Pms
                 string cashierId = conn.Cashierid;
                 Header queryHeader = new QueryCardHeader(cardNo, password, shopId, posId, cashierId);
                 ProcessResult processResult = conn.ReadCard(queryHeader);
+                Lbl_msg.Text = processResult.Result;
                 if (processResult.IsProcessed)
                 {
                     lbl_cardNo.Text = processResult.Cardno;
@@ -69,7 +72,7 @@ namespace Pms
                 }
             }
         }
-
+       
         private void Pay()
         {
             CardConn conn = new CardConn();
@@ -90,9 +93,16 @@ namespace Pms
             if (isProcess)
             {
                 this.Close();
+                CardPrint cardPrint=new CardPrint();
+                cardPrint.ProcessResult = processResult;
+                cardPrint.Print();
+             
+                ConfigeHelper.SetConfigValue("Order", cardPrint.GetOrderNew());
                 MessageBox.Show(processResult.Result);
+
             }
            
         }
+        
     }
 }
