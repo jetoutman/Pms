@@ -101,9 +101,10 @@ namespace Pms
             string cashierId = conn.Cashierid;
 
             string payValue = PayAmount.ToString();
-            string owenerId = "11111";
+            CardPrint cardPrint = new CardPrint();
+            string owenerId = cardPrint.GetOrder();
             string cdSeq = "555";
-            string date = DateTime.Now.ToString("YYYYMMdd");
+            string date = DateTime.Now.ToString("yyyyMMdd");
             string time = DateTime.Now.ToString("hhmmss");
             Header payCardHeader = new PayCardHeader(cardNo, password, shopId, posId, cashierId,date,time, payValue, owenerId, cdSeq);
             ProcessResult processResult = conn.PayCard(payCardHeader);
@@ -111,7 +112,7 @@ namespace Pms
             if (isProcess)
             {
                 this.Close();
-                CardPrint cardPrint=new CardPrint();
+              
                 cardPrint.ProcessResult = processResult;
                 cardPrint.Print();
              

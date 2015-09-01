@@ -92,36 +92,9 @@ namespace Pms
             processResult.IsProcessed = isProcess;
             return processResult;
         }
-
       
-        private string xx(string input)
-        {
-            string str1 = input.Substring(0, 1);
-            string str2 = input.Substring(input.Length - 1, 1);
-            string no = string.Empty;
-            if (str1 == ";")
-            {
-                no = input.Substring(1);
-            }
-            if (str2 == "?")
-            {
-                no = input.Substring(0, input.Length - 1);
-            }
-            return no;
-
-        }
-
-        private string yy(string input)
-        {
-            string cardNo = input;
-            if (input.Substring(0, 1) == ";")
-            {
-                cardNo = input.Substring(1, input.Length - 2);
-            }
-          
-            return cardNo;
-
-        }
+      
+    
 
         public void Print(string str)
         {
@@ -133,7 +106,8 @@ namespace Pms
             string querycard = header.ToTransData();
             string stringdata = string.Empty;
             byte[] data = new byte[1024];
-            data = Encoding.UTF8.GetBytes(querycard);
+
+            data = Encoding.ASCII.GetBytes(querycard);
             Socket newclient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
 
@@ -152,7 +126,7 @@ namespace Pms
             }
             newclient.Send(data, data.Length, 0);
             int recv = newclient.Receive(data);
-            stringdata = Encoding.UTF8.GetString(data, 0, recv);
+            stringdata = Encoding.ASCII.GetString(data, 0, recv);
 
             newclient.Shutdown(SocketShutdown.Both);
             newclient.Close();

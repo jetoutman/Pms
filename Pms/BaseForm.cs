@@ -44,7 +44,7 @@ namespace Pms
 
         }
 
-       /* protected void RigisterKey()
+        protected void RigisterKey()
        {
            h.Regist(this.Handle, 0, Keys.F11, CallBack);
        }
@@ -53,7 +53,7 @@ namespace Pms
        {
            h.UnRegist(this.Handle, CallBack);
          
-       }*/
+       }
 
       
     }

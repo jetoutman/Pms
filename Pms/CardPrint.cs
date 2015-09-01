@@ -65,7 +65,7 @@ namespace Pms
             return Order.ToString();
         }
 
-        private string GetOrder()
+        public string GetOrder()
         {
             string orderStr = Order.ToString();
             return orderStr;

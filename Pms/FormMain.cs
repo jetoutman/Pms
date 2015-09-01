@@ -15,7 +15,7 @@ namespace Pms
         public FormMain()
         {
             InitializeComponent();
-          
+            RigisterKey();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,19 +44,13 @@ namespace Pms
             frmNavPay.Show();
         }
 
-        private void FormMain_Activated(object sender, EventArgs e)
-        {
-           /* if (HotKeySets[FormId] == false)
-            {
-                RigisterKey();
-                HotKeySets[FormId] = true;
-            }*/
-          
-        }
+      
 
-        private void FormMain_Leave(object sender, EventArgs e)
+       
+
+        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-         
+            UnRigisterKey();
         }
        
 
