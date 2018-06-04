@@ -51,11 +51,17 @@ namespace Pms
             stringBuilder.AppendLine();
             stringBuilder.AppendFormat("交易金额: {0}   卡余额 {1}", ProcessResult.Payvalue, ProcessResult.Balance);
             stringBuilder.AppendLine();
+            if (ProcessResult.IsMonthCard)
+            {
+                stringBuilder.AppendFormat("月度余额 {0}", ProcessResult.MonthBalance??string.Empty);
+                stringBuilder.AppendLine();
+
+            }
             stringBuilder.AppendLine("1.本人同意支付上述款项");
             stringBuilder.AppendLine("2.持卡人签字:");
             stringBuilder.AppendLine("");
             stringBuilder.AppendLine("");
-
+           
             return stringBuilder.ToString();
         }
 
@@ -82,7 +88,7 @@ namespace Pms
             string line = null;
             Font verdana10Font = new Font("Verdana", 10);
             verdana10Font.GetHeight(g);
-            float linesPerPage = 17;
+            float linesPerPage = 18;
 
             float yPos = 0;
 

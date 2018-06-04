@@ -15,13 +15,15 @@ namespace Pms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            /*
             FrmLogin frmLogin=new FrmLogin();
             frmLogin.ShowDialog();
             if (frmLogin.DialogResult == DialogResult.OK)
             {
-                Application.Run(new FormMain());
+               
             }
-          
+             * */
+            Application.Run(new FormMain());
         }
     }
 }

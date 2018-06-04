@@ -18,9 +18,15 @@ namespace Pms
         {
             InitializeComponent();
             txtCardNo.Focus();
-       
+            SetMonthBalanceVisible(false);
+
         }
 
+        private void SetMonthBalanceVisible(bool isVisible)
+        {
+            lbl_MonthBalance.Visible = isVisible;
+            label5.Visible = isVisible;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             CardConn conn = new CardConn();
@@ -56,8 +62,10 @@ namespace Pms
         }
         private void txtCardNo_KeyDown(object sender, KeyEventArgs e)
         {
+            SetMonthBalanceVisible(false);
             if (e.KeyCode == Keys.Enter) //如果输入的是回车键
             {
+               
                 string input = txtCardNo.Text.Trim();
                 CardConn conn = new CardConn();
                 string cardNo = GetCardNo(input);
@@ -73,9 +81,17 @@ namespace Pms
                     lbl_cardNo.Text = processResult.Cardno;
                   
                     lbl_Amount.Text = processResult.Balance.Trim();
+                    bool isMonthCard = !string.IsNullOrEmpty(processResult.MonthBalance);
+                    SetMonthBalanceVisible(isMonthCard);
+                    if (isMonthCard)
+                    {
+                        lbl_MonthBalance.Text = processResult.MonthBalance;
+                    }
                     decimal banlance = 0m;
+                    decimal monthBanlace = 0m;
                     decimal.TryParse(processResult.Balance, out banlance);
-                    bool isGreatThan = banlance >= PayAmount;
+                    decimal.TryParse(processResult.MonthBalance, out monthBanlace);
+                    bool isGreatThan = IsCanPay(isMonthCard,PayAmount,monthBanlace,banlance);
                     if (IsPay && isGreatThan)
                     {
                         DialogResult dr = MessageBox.Show("卡金额足够，现在结账吗？", "付款",MessageBoxButtons.OKCancel);
@@ -89,7 +105,12 @@ namespace Pms
                 }
             }
         }
-       
+
+        private bool IsCanPay(bool isMonthCard,decimal payAmount,decimal banlance,decimal monthBanlance)
+        {
+            decimal acutalBalance = isMonthCard ? monthBanlance : banlance;
+            return acutalBalance >= payAmount;
+        }
         private void Pay()
         {
             CardConn conn = new CardConn();
@@ -114,9 +135,13 @@ namespace Pms
                 this.Close();
               
                 cardPrint.ProcessResult = processResult;
-                cardPrint.Print();
-             
-                ConfigeHelper.SetConfigValue("Order", cardPrint.GetOrderNew());
+                if (processResult.Code == "0000")
+                {
+                    cardPrint.Print();
+
+                    ConfigeHelper.SetConfigValue("Order", cardPrint.GetOrderNew());
+                }
+               
                 MessageBox.Show(processResult.Result);
 
             }

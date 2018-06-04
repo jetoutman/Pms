@@ -32,6 +32,8 @@
             this.txtCardNo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbl_MonthBalance = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.Lbl_msg = new System.Windows.Forms.Label();
             this.lbl_Amount = new System.Windows.Forms.Label();
             this.lbl_cardNo = new System.Windows.Forms.Label();
@@ -69,13 +71,15 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(451, 195);
+            this.groupBox1.Size = new System.Drawing.Size(451, 234);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "储值卡查询";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbl_MonthBalance);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.Lbl_msg);
             this.groupBox2.Controls.Add(this.lbl_Amount);
             this.groupBox2.Controls.Add(this.lbl_cardNo);
@@ -84,10 +88,27 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(31, 57);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(365, 112);
+            this.groupBox2.Size = new System.Drawing.Size(365, 144);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "卡信息";
+            // 
+            // lbl_MonthBalance
+            // 
+            this.lbl_MonthBalance.AutoSize = true;
+            this.lbl_MonthBalance.Location = new System.Drawing.Point(97, 115);
+            this.lbl_MonthBalance.Name = "lbl_MonthBalance";
+            this.lbl_MonthBalance.Size = new System.Drawing.Size(0, 12);
+            this.lbl_MonthBalance.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 115);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "月度余额：";
             // 
             // Lbl_msg
             // 
@@ -144,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 244);
+            this.ClientSize = new System.Drawing.Size(508, 286);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmQuery";
             this.Text = "储值卡查询";
@@ -169,5 +190,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Lbl_msg;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_MonthBalance;
     }
 }

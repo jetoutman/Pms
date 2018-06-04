@@ -7,7 +7,7 @@ namespace Pms
 {
    abstract class Header
     {
-       protected const string C_LENGTH = "138";
+       protected const string C_LENGTH = "151";
        public string Length { get; set; }
        public string Tranid { get; set; }
        public string Code { get; set; }
@@ -23,6 +23,7 @@ namespace Pms
        public string Time { get; set; }
        public string Payvalue { get; set; }
        public string Balance { get; set; }
+       public string MonthBalance { get; set; }
        public string Owner { get; set; }
        public string Cdseq { get; set; }
        public string Guestname { get; set; }
@@ -56,6 +57,7 @@ namespace Pms
            builder.AppendFormat(RepeartChar(Owner, 11));
            builder.AppendFormat(RepeartChar(Cdseq, 5));
            builder.AppendFormat(RepeartChar(Guestname, 13));
+           builder.AppendFormat(RepeartChar(MonthBalance, 13));
            return builder.ToString();
        }
 

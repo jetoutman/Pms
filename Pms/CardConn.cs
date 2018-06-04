@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Pms
 {
@@ -130,6 +131,7 @@ namespace Pms
 
             newclient.Shutdown(SocketShutdown.Both);
             newclient.Close();
+          
             return stringdata;
         }
     }

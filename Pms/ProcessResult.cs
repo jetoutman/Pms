@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Pms
@@ -26,9 +27,12 @@ namespace Pms
         public string Guestname { get; set; }
         public string Result { get; set; }
         public bool IsProcessed { get; set; }
+        public string MonthBalance { get; set; }
+        public bool IsMonthCard { get; set; }
       
         public ProcessResult(string result)
         {
+            //WriteSocketTxt(result);
             //4+5+5+20+9+9+1+1+5+5+5+9+9+13+13+11+5+13
             Length = result.Substring(0, 4).Replace("\0", "");
             Tranid = result.Substring(4, 5).Replace("\0", "");
@@ -47,13 +51,22 @@ namespace Pms
             Balance = result.Substring(100, 13).Replace("\0", "");
             Owner = result.Substring(113, 11).Replace("\0", "");
             Cdseq = result.Substring(124, 5).Replace("\0", "");
-           Guestname = result.Substring(129,13).Replace("\0", ""); 
-          
-           
+            Guestname = result.Substring(129,13).Replace("\0", ""); 
+            MonthBalance=result.Substring(139,13).Replace("\0", "").Trim();
+            IsMonthCard = !string.IsNullOrEmpty(MonthBalance);
 
-           
         }
 
+        private void WriteSocketTxt(string result)
+        {
+            string path = System.AppDomain.CurrentDomain.BaseDirectory + DateTime.Now.ToString("yyyy-M-d-hhmmssss") + ".txt";
+            FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            using (StreamWriter writer = new StreamWriter(stream))
+            {
+                writer.WriteLine(result);
+                writer.Close();
+            }
+        }
      /*   public string GetChsFromHex(string hex)
         {
             if (hex == null)
