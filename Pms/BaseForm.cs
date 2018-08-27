@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using log4net;
 
 namespace Pms
 {
@@ -9,7 +10,7 @@ namespace Pms
     {
        protected int FormId { get; set; }
        public bool IsPay { get; set; }
-
+       protected static readonly ILog log = LogManager.GetLogger("pms");
        protected static Dictionary<int, bool> HotKeySets = new Dictionary<int, bool>();
       
        HotKey h = new HotKey();
@@ -65,15 +66,6 @@ namespace Pms
                 System.Environment.Exit(0);
             }
         }
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.F11:
-                    MessageBox.Show("F11");
-                    break;
-            }
-            base.OnKeyDown(e);
-        }
+       
     }
 }

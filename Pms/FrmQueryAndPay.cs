@@ -11,7 +11,7 @@ namespace Pms
 {
     public partial class FrmQueryAndPay : BaseForm
     {
-        private ILog log = LogManager.GetLogger("pms");
+        
         public FrmQueryAndPay()
         {
             InitializeComponent();
