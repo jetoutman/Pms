@@ -41,7 +41,7 @@ namespace Pms
         private string FilterChars(string input)
         {
             return input;
-            return input.Replace("?", "").Replace("!", "");
+            //return input.Replace("?", "").Replace("!", "");
         }
         private void txtCardNo_KeyDown(object sender, KeyEventArgs e)
         {
