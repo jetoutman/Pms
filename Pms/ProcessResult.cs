@@ -37,7 +37,7 @@ namespace Pms
             Length = result.Substring(0, 4).Replace("\0", "");
             Tranid = result.Substring(4, 5).Replace("\0", "");
             Code = result.Substring(9, 5).Replace("\0", "");
-            Cardno = result.Substring(14, 20).Replace("\0", "");
+            Cardno = result.Substring(14, 20).Replace("\0", "").Replace(";","");
             Passwd = result.Substring(34, 9).Replace("\0", "");
             NewPasswd = result.Substring(43, 9).Replace("\0", "");
             Recstat = result.Substring(52, 1).Replace("\0", "");

@@ -13,7 +13,7 @@ namespace Pms
     public partial class FrmQuery : BaseForm
     {
         public decimal PayAmount { get; set; }
-
+        public FrmQueryAndPay FrmQueryAndPay { get; set; }
         public FrmQuery()
         {
             InitializeComponent();
@@ -21,7 +21,14 @@ namespace Pms
             SetMonthBalanceVisible(false);
 
         }
+        public FrmQuery(FrmQueryAndPay frmQueryAndPay)
+        {
+            InitializeComponent();
+            FrmQueryAndPay = frmQueryAndPay;
+            txtCardNo.Focus();
+            SetMonthBalanceVisible(false);
 
+        }
         private void SetMonthBalanceVisible(bool isVisible)
         {
             lbl_MonthBalance.Visible = isVisible;
@@ -63,9 +70,10 @@ namespace Pms
         private void txtCardNo_KeyDown(object sender, KeyEventArgs e)
         {
             SetMonthBalanceVisible(false);
+            F11Exit(e);
             if (e.KeyCode == Keys.Enter) //如果输入的是回车键
             {
-               
+              
                 string input = txtCardNo.Text.Trim();
                 CardConn conn = new CardConn();
                 string cardNo = GetCardNo(input);
@@ -102,6 +110,12 @@ namespace Pms
                         }
                        
                     }
+                }
+                
+                if (FrmQueryAndPay != null)
+                {
+                    FrmQueryAndPay.ClearScreen();
+                    this.Close();
                 }
             }
         }

@@ -15,6 +15,7 @@ namespace Pms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            log4net.Config.XmlConfigurator.Configure();
             /*
             FrmLogin frmLogin=new FrmLogin();
             frmLogin.ShowDialog();
@@ -23,7 +24,7 @@ namespace Pms
                
             }
              * */
-            Application.Run(new FormMain());
+            Application.Run(new FrmQueryAndPay());
         }
     }
 }

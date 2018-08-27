@@ -15,6 +15,8 @@ namespace Pms
        HotKey h = new HotKey();
         public void CallBack()
         {
+         
+            /*
             bool isMin = this.WindowState == FormWindowState.Minimized;
             if (isMin)
             {
@@ -25,7 +27,8 @@ namespace Pms
                 this.WindowState = FormWindowState.Minimized;
                 
             }
-
+            */
+            System.Environment.Exit(0);
 
         }
         protected override void WndProc(ref Message m)
@@ -55,6 +58,22 @@ namespace Pms
          
        }
 
-      
+        protected void F11Exit(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F11) //如果输入的是回车键
+            {
+                System.Environment.Exit(0);
+            }
+        }
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F11:
+                    MessageBox.Show("F11");
+                    break;
+            }
+            base.OnKeyDown(e);
+        }
     }
 }

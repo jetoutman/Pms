@@ -39,7 +39,7 @@ namespace Pms
 
         private void txtPayValue_KeyDown(object sender, KeyEventArgs e)
         {
-           
+            F11Exit(e);
             if (e.KeyCode == Keys.Enter)//如果输入的是回车键
             {
               
