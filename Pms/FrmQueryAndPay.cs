@@ -98,7 +98,7 @@ namespace Pms
                 log.Error(error);
             }
             
-           
+           log.Info("test");
         }
 
         public void ClearScreen()
